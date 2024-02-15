@@ -14,7 +14,16 @@ terraform {
       source  = "hashicorp/helm"
       version = "2.12.1"
     }
+    argocd = {
+      source  = "oboukili/argocd"
+      version = "6.0.3"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "3.6.0"
+    }
   }
+
 }
 
 data "google_container_cluster" "default" {
@@ -42,4 +51,10 @@ provider "helm" {
       data.google_container_cluster.default.master_auth[0].cluster_ca_certificate,
     )
   }
+}
+
+provider "argocd" {
+  server_addr = "${var.cluster_endpoint}:80"
+  username    = var.argocd_username
+  password    = var.argocd_password
 }
