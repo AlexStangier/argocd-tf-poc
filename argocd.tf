@@ -19,7 +19,7 @@ resource "helm_release" "argocd" {
   ]
 
   set {
-    name = "redis-ha.enabled"
+    name  = "redis-ha.enabled"
     value = false
   }
 
@@ -29,22 +29,22 @@ resource "helm_release" "argocd" {
   }
 
   set {
-    name = "server.autoscaling.minReplicas"
+    name  = "server.autoscaling.minReplicas"
     value = 1
   }
 
   set {
-    name = "repoServer.autoscaling.enabled"
+    name  = "repoServer.autoscaling.enabled"
     value = false
   }
 
   set {
-    name = "repoServer.autoscaling.minReplicas"
+    name  = "repoServer.autoscaling.minReplicas"
     value = 1
   }
 
   set {
-    name = "applicationSet.replicas"
+    name  = "applicationSet.replicas"
     value = 1
   }
 }
