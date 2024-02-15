@@ -34,3 +34,12 @@ variable "argocd_username" {
   type        = string
 }
 
+variable "cert-manager-version" {
+  type        = string
+  description = "Cert Manager Software Version"
+}
+
+variable "certmanager_cluster_issuer" {
+  type        = string
+  description = "Cluster Issuer Email"
+}
