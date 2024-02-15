@@ -54,4 +54,6 @@ resource "helm_release" "argocd" {
 
 resource "argocd_repository" "argocd_example_apps" {
   repo = "git@github.com:AlexStangier/argocd-example-apps.git"
+
+  depends_on = [ helm_release.argocd ]
 }

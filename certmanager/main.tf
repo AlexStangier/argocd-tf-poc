@@ -50,3 +50,4 @@ resource "kubernetes_manifest" "cert_manager_cluster_issuer" {
   }
 }
 
+//TODO fix 'certificate signed by unknown authority' error

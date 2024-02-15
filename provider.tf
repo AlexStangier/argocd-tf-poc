@@ -50,7 +50,7 @@ provider "helm" {
 }
 
 provider "argocd" {
-  server_addr = "${var.cluster_endpoint}:80"
+  server_addr = "${var.cluster_endpoint}:443"
   username    = var.argocd_username
   password    = var.argocd_password
 }
