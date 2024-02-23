@@ -1,0 +1,10 @@
+argo-cd:
+  dex:                      # external auth serrvices
+    enabled: false
+  notifications:            # disable notifications controller
+    enabled: false
+  applicationSet:           # disable application set controller (disable automated generation of applications)
+    enabled: false
+  server:
+    extraArgs:
+      - --insecure          # web ui via http
