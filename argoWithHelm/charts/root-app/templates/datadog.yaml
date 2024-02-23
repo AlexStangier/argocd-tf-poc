@@ -4,7 +4,7 @@ metadata:
   name: datadog
   finalizers:
   - resources-finalizer.argocd.argoproj.io
-  spec:
+spec:
   project: default
   source:
     repoURL: https://helm.datadoghq.com
