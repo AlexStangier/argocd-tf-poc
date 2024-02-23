@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/AlexStangier/argocd-tf-poc.git
-    path: argoWithHelm/charts/root-app/
+    path: argoWithHelm/charts/root-app/templates
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
