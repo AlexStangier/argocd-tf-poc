@@ -1,0 +1,14 @@
+get argo admin password
+    kubectl get secret -n argocd argocd-initial-admin-secret -o json
+    echo <password> | base64 -d (remove trailing %)
+
+
+expose service by LoadBalancer     
+    kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+
+forward internal port to localhost 
+    kubectl port-forward svc/argocd-server -n argocd 8080:443  
+
+certmanager crds run before first apply
+    kubectl apply -f ./CRDs/cert-manager.crds.yaml
+    kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.14.2/cert-manager.crds.yaml
