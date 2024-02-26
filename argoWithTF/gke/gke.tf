@@ -4,14 +4,15 @@ resource "google_service_account" "default" {
 }
 
 resource "google_container_cluster" "argo-cd-cluster" {
-  name     = "argo-cluster"
+  name     = var.cluster_name
   location = var.region
 
   remove_default_node_pool = true
   initial_node_count       = 1
+  deletion_protection      = false
 }
 
-resource "google_container_node_pool" "primary_preemptible_nodes" {
+resource "google_container_node_pool" "primary_node" {
   name       = "argocd-node-pool"
   location   = var.region
   cluster    = google_container_cluster.argo-cd-cluster.name
